@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="container" style="margin-top: 200px;">
+    <div class="row" style="margin-top: 20px;">
+        <div style="margin-bottom: 20px;">
+            <img src="{{ main_doctor.image.url }}" alt="" class="img-responsive img-rounded">
+        </div>
+            <h2>ФИО: {{ main_doctor.fio }}</h2>
+            <h3>ПИН КОД паспорта: {{ main_doctor.pin_passport }}</h3>
+            <h3>Возраст: {{ main_doctor.age }}</h3>
+            <h3>Опыт работы: {{ main_doctor.skill }}</h3>
+            <h3>Номер телефона : {{ main_doctor.number }}</h3>
+            <h3>Лечащий врач: {{ main_doctor.treat_doctor }}</h3>
+            <h3>Медсестра: {{ main_doctor.nurse }}</h3>
+    </div>
+</div>
+
+{% endblock %}

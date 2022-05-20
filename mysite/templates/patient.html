@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="container" style="margin-top: 200px;">
+    <div class="row" style="margin-top: 20px;">
+        {% for i in patients %}
+        <div class="col-md-12 col-sm-12"  style="background: rgb(30, 151, 199); padding: 10px; border-radius: 10px; margin: 10px">
+            <h2>ФИО: {{ i.fio }}</h2>
+            <h2>Возраст: {{ i.age }}</h2>
+            <h2>Номер телефона: {{ i.number }}</h2>
+            <h2>Причина обращение: {{ i.problem }}</h2>
+            <h2>Медсестра:
+                {% for j in i.nurse_set.all  %}
+                    {{ j.fio }}
+                {% endfor %}
+            </h2>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

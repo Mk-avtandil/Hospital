@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="container" style="margin-top: 200px;">
+    <div class="row" style="margin-top: 20px;">
+        {% for i in hospital_info %}
+        <div class="col-md-12 col-sm-12"  style="background: rgb(30, 151, 199); padding: 10px; border-radius: 10px; margin: 10px">
+            <h2>ОКПО БОЛЬНИЦЫ: {{ i.okpo }}</h2>
+            <h3>Главный врач больницы: <a href="{% url 'main_doctor' i.pk %}">{{ i.main_doctor }}</a></h3>
+            <h3>Тип больницы: {{ i.type_of_hospital }}</h3>
+            <h3>Вместимость: {{ i.max_person }}</h3>
+            <h3>Кол-во врачей: {{ i.treatdoctor_set.all.count }}</h3>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
